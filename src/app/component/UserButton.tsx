@@ -30,7 +30,7 @@ function UserButton() {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Avatar>
-                            <AvatarImage src={session.user?.name!} />
+                            <AvatarImage src={session.user?.name ?? ""} />
                             <AvatarFallback>
                                 {getTwoFirstTwoCapitalLetters(session.user?.name)}
                             </AvatarFallback>
@@ -47,7 +47,7 @@ function UserButton() {
             )}
 
             {status === 'unauthenticated' && (
-                <Button onClick={() => signIn()}>
+                <Button onClick={() => signIn("google")}>
                     Sign In
                 </Button>
             )}
